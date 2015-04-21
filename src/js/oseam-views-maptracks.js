@@ -103,7 +103,8 @@ OSeaM.views.MapTracks = OSeaM.View.extend({
                 transparent: true
             },{
                 isBaseLayer: false,
-                tileSize: new OpenLayers.Size(1024,1024)
+                tileSize: new OpenLayers.Size(1024,1024),
+                    visibility : false
             }
         );
         this.layerTrackPoints10 = new OpenLayers.Layer.WMS('10m',
@@ -116,7 +117,7 @@ OSeaM.views.MapTracks = OSeaM.View.extend({
                 },{
                     isBaseLayer: false,
                     tileSize: new OpenLayers.Size(1024,1024),
-                    visibility : false
+                    visibility : true
                 }
             );
         this.layerTrackPoints_filter1 = new OpenLayers.Layer.WMS('100m Filter 1',
@@ -205,7 +206,7 @@ OSeaM.views.MapTracks = OSeaM.View.extend({
         },{
             isBaseLayer: false,
             tileSize: new OpenLayers.Size(1024,1024),
-            visibility : false
+            visibility : true
         }
     );
 
@@ -226,10 +227,10 @@ OSeaM.views.MapTracks = OSeaM.View.extend({
             new OpenLayers.Control.KeyboardDefaults(),
             new OpenLayers.Control.LayerSwitcher()
         ]);
-        this.map.setCenter(new OpenLayers.LonLat(0.0, 40.0).transform(
+        this.map.setCenter(new OpenLayers.LonLat(11.46, 53.63).transform(
             this.projectionWGS84,
             this.projectionMercator
-          ), 3
+          ), 13
         );
         this.map.events.register( 'moveend', this, this.mapEventMove);
         
